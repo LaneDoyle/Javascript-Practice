@@ -38,17 +38,19 @@ document.getElementById("calendar").innerHTML = createCalendar(thisDay);
 
 function createCalendar(calDate){
     var calendarHTML = "<table id = 'calendar_table'>";
+    calendarHTML += calCaption(calDate)
+    calendarHTML += calWeekdayRow();
     calendarHTML += "</table>";
     return calendarHTML;
 }
 
 /* Function to write the calendar caption */
 function calCaption(calDate){
-    
+
     //monthName array contains the list of month names
     var monthName = ["January", "February", "March", "April",
     "May", "June", "July", "August", "September", "October", "November",
-    "December"]
+    "December"];
 
     //Determine the current month
     var thisMonth = calDate.getMonth();
@@ -57,6 +59,22 @@ function calCaption(calDate){
     var thisYear = calDate.getFullYear();
 
     //Write the caption
-    return "<caption>" + monthName[thisMonth] + " " + thisYear + "</caption>"
+    return "<caption>" + monthName[thisMonth] + " " + thisYear + "</caption>";
+}
+
+/* Function to write a table row of weekday abbreviations */
+function calWeekdayRow() {
+
+    //Array of weekday abbreviations\
+    var dayName = ["SUN", "MON", "TUE", "WED", "THU", "FRI"];
+    var rowHTML = "<tr>";
+
+    //Look through the dayName array 
+    for (var i = 0; i < dayName.length; i++){
+        rowHTML += "<th class = 'calendar_weekdays'>" + dayName[i] + "</th>";
+    }
+
+    rowHTML += "</tr"
+    return rowHTML
 }
 
