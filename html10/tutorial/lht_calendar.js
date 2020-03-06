@@ -97,3 +97,17 @@ function daysInMonth(calDate){
     //Return the number of days for the current month
     return dayCount[thisMonth];
 }
+
+/* Function to write table rows for each day of the month */
+function calDays(calDate) {
+    // Determine the starting day of the month
+    var day = new Date(calDate.getFullYear(), calDate.getMonth(), 1);
+    var weekDay = day.getDay();
+
+    //Write blank cells preceding the starting day
+    var htmlCode = "<tr>";
+    for (var i = 0; i < weekDay; i++){
+        htmlCode += "<td></td>"
+    }
+    //Write cells for each day of the month
+}
